@@ -1,0 +1,103 @@
+.navbar-brand .logo{
+   height: 60px;
+   width: 60px;
+   filter:brightness(0) invert(1);
+   
+}  
+
+.navbar-nav .nav-item{
+   margin: 0px 3px;
+   font-size: larger;
+
+}
+
+.home{
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100vh;
+   background-image: url('../img/img3.jpeg');
+   background-size:cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   z-index: -1;
+}
+
+.title{
+   margin: 50px;
+   font-weight: 600;
+   font-size: 70px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+   
+}
+
+.picture{
+   width:250px;
+   border-radius: 50%;
+   height:220px;
+
+}
+
+.cart-img{
+   height: 40px;
+   width: 40px;
+   margin:4px 8px;
+   filter:brightness(0) invert(1);
+} 
+
+.orders{
+   position:relative;
+   top:100px;
+   line-height: 250%;
+}
+
+.proflie-img{
+   height: 40px;
+   width: 40px;
+   margin:16px 5px 5px 5px;
+   border-radius: 2px;
+   filter:brightness(0) invert(1);
+}
+
+.del{
+   position:absolute;
+   right:30px;
+   background-color: red;
+   color: white;
+   height: 20px;
+   width:20px;
+   margin-top:12px;
+   padding-bottom: 1px ;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   border-radius: 2px;
+}
+
+.del:hover{
+   background-color: rgb(233, 119, 119);
+}
+
+li{
+   display: flex;
+}
+
+.col-md-6{
+   background-color: rgb(61, 99, 99);
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px 2px gray transparent, -2px -2px 2px 2px gray transparent;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   color: white;
+}
+
+#id_username{
+   background-color: rgb(169, 234, 234);
+   color: black;
+}
+
+.login{
+   padding-top: 5px;
+}

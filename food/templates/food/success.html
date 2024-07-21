@@ -1,0 +1,17 @@
+{% extends 'food/base.html' %}
+{% load static %}
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h2>We have received your order </h2>
+        <h4>Number of order: {{ orderNum }}</h4>
+        <h4>You have ordered: </h4>
+        {% for item in items %}
+        <h3>{{item.name}}{{item.size}}{{item.price}}</h3>
+        {% endfor %}
+        <h4>Total: Rs. {{bill}} </h4>
+        <h4>If you want to modify your order, please call us</h4>
+        <h4>Phone: 00 65 78 34 45</h4>
+    </div>
+{% endblock %}

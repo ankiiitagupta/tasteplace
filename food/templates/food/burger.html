@@ -1,0 +1,46 @@
+{% extends 'food/base.html' %}
+{% load static %}
+{% block title %}Burger{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="title"> Our Burgers</h2>
+            <div class="row">
+            {% for burger in burgers %}
+            <div class="col-md-4 p-4">
+                <img class="picture" src="{{burger.bImage}}">
+                <h4 class="pt-3" id="burger{{burger.id}}">{{burger.name}}</h4>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="burger{{burger.id}}"  value="{{burger.priceM}}" checked>
+                        M:  Rs. {{burger.priceM}}
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="burger{{burger.id}}"  value="{{burger.priceL}}">
+                        L:  Rs. {{burger.priceL}}
+                    </label>
+                </div>
+                <div class="form-check">
+                <button class="btn-info mt-3" onclick="addBurger('{{burger.id}}')" >Add To Cart</button>
+                </div>
+            </div>
+            {% endfor %}
+            </div> 
+        </div>
+        <div class="col-md-4 orders">   
+            <div class="bg-dark p-4 rounded text-light">
+            <h2 class="text-center">Order List</h2>
+                <ul id="bcart"></ul>
+                <h4 class="text-right" id="btotal">Total: Rs. 0</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'food/js/borders.js'%}"></script>
+{% endblock %}

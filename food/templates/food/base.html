@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title%}{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'food/css/style.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/2771/2771401.png" class="logo">
+            </a>
+            
+            <!-- Links -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav">
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynav">  
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link {% if active_link == 'index' %} active{%endif%}" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if active_link == 'pizza' %} active{%endif%}" href="{% url 'food:pizza' %}">pizza</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if active_link == 'Burger' %} active{%endif%} " href="{%url 'food:Burger' %}">Burger</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto" >
+              {% if user.is_authenticated %}
+              <li class="nav-item mt-2">
+                <h5 class="text-light pt-3 pr-4">Welcome {{user.username}}!!!</h5>
+                
+              </li>
+              {% endif %}
+              <li class="nav-item mt-2">
+                <a class="nav-link {% if active_link == 'order' %} active{%endif%} " href="{%url 'food:order' %}"><img class="cart-img" src="https://cdn-icons-png.flaticon.com/512/263/263142.png"><span id="cart"></span></a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link {% if active_link == 'login' %} active{%endif%} " href="{%url 'food:logout' %}">
+                  <img class="proflie-img" src="https://cdn-icons-png.flaticon.com/512/3106/3106773.png">Log Out</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link {% if active_link == 'login' %} active{%endif%} " href="{%url 'food:login' %}">
+                  <img class="proflie-img" src="https://cdn-icons-png.flaticon.com/512/3106/3106773.png">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+            {% block content %}
+            <h2 id="heading">Welcome To The Tasteplace</h2>
+            {% endblock %}
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'food/js/main.js'%}"></script>
+        
+    </body>
+    </html>
